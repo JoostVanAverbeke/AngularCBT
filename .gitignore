@@ -1,3 +1,5 @@
 dist
 coverage
 typings
+.idea/
+node_modules/

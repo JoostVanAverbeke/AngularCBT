@@ -1,11 +1,10 @@
-import { Component } from '@angular/core'
-import { ROUTER_DIRECTIVES } from '@angular/router'
+import {Component} from "@angular/core";
+import {ROUTER_DIRECTIVES} from "@angular/router";
 
 @Component({
     selector: 'top_nav_bar',
-    templateUrl: 'app/components/navigation/top_bar.component.html',
-    directives: [ROUTER_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES],
+    templateUrl: 'app/components/navigation/top_bar.component.html'
 })
 
 export class TopNavigationBarComponent {}
-
