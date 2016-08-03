@@ -1,9 +1,4 @@
-import {
-    describe,
-    beforeEach,
-    expect,
-    it
-} from '@angular/core/testing';
+import {describe, beforeEach, expect, it} from "@angular/core/testing";
 import {HelloWorldComponent} from "./hello_world";
 
 describe('HelloWorldComponent', () => {
