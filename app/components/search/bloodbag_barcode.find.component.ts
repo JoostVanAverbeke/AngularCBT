@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
-import {BloodbagService} from "../../services/bloodbag/bloodbag.service";
+import {Component} from "@angular/core";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'find-bloodbag',
-    templateUrl: 'app/components/search/bloodbag_barcode.find.component.html',
-    providers: [BloodbagService]
+    templateUrl: 'app/components/search/bloodbag_barcode.find.component.html'
 })
 
 export class FindBloodbagBarcodeComponent {
@@ -12,14 +11,11 @@ export class FindBloodbagBarcodeComponent {
 
     errorMsg: string;
 
-    constructor(private service: BloodbagService) {
+    constructor(private router: Router) {
     }
 
     // When the next call is done, reroute the response to the bloodbag.detail.component
     getBloodbagByBarcode(barcode: string) {
-
-        if (!this.service.getByBarcode(barcode)) {
-            this.errorMsg = 'No bloodbag found with this barcode';
-        }
+        this.router.navigate(['/bloodbag/' + barcode + '/detail']);
     }
 }

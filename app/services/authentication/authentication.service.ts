@@ -14,6 +14,7 @@ export class User {
     initials: string;
     hcProviderId: number;
     hospitalEmployeeId: number;
+    credentials: string;
 }
 
 @Injectable()
@@ -24,13 +25,16 @@ export class AuthenticationService {
 
     public login(username: string, password: string): boolean {
         var userSet: boolean;
-        this.getUser(username, password).subscribe(data => userSet = this.setCredentials(this.parseData(data)));
+        let credentials: string = 'Basic ' + Base64.encode(username + '@CyberTrack:' + password);
+        this.getUser(username, credentials)
+            .subscribe(
+                data => userSet = this.setCredentials(this.parseData(data, credentials)));
         return userSet;
     }
 
-    private getUser(username: string, password: string): Observable<User> {
+    private getUser(username: string, credentials: string): Observable<User> {
         let headers = new Headers();
-        headers.append('Authorization', 'Basic ' + Base64.encode(username + '@CyberTrack:' + password));
+        headers.append('Authorization', credentials);
         headers.append('ApiVersion', '1');
         headers.append('Content-Type', 'application/json');
 
@@ -41,9 +45,17 @@ export class AuthenticationService {
             .map((response: Response) => response.json());
     }
 
-    private parseData(data: any): User {
-        let [user,] = data.response.data.set.users;
-        return user;
+    private parseData(data: any, credentials: string): User {
+        let user: User = data.response.data.set.users[0];
+        return {
+            loginName: user.loginName,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            initials: user.initials,
+            hcProviderId: user.hcProviderId,
+            hospitalEmployeeId: user.hospitalEmployeeId,
+            credentials: credentials
+        };
     }
 
     private setCredentials(authUser: User): boolean {
