@@ -1,0 +1,11 @@
+<div class="col-sm-6">
+    <div class="input-group">
+                        <span class="input-group-addon">
+                          <i class="glyphicon glyphicon-user"></i>
+                            <i class="glyphicon glyphicon-barcode"></i>
+                        </span>
+        <input #box (keyup.enter)="values=box.value" class="form-control" name="patient_barcode" placeholder="Patient Barcode" type="text">
+        <p>{{values}}</p>
+    </div>
+
+</div>

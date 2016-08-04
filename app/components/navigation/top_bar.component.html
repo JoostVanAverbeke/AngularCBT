@@ -11,5 +11,11 @@
         <ul class="nav navbar-nav navbar-right">
             <li><a (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ul>
+        <div class="navbar-right col-sm-6">
+            <form action="/scan_barcode" class="navbar-form row" method="post" role="form">
+                <find-bloodbag></find-bloodbag>
+                <find-patient></find-patient>
+            </form>
+        </div>
     </div>
 </nav>

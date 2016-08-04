@@ -1,0 +1,10 @@
+<div class="col-sm-6">
+    <div class="input-group">
+                        <span class="input-group-addon">
+                          <i class="glyphicon glyphicon-tint"></i>
+                            <i class="glyphicon glyphicon-barcode"></i>
+                        </span>
+        <input #bloodbag_barcode_box (keyup.enter)="getBloodbagByBarcode(bloodbag_barcode_box.value)" class="form-control" name="patient_barcode" placeholder="Bloodbag Barcode" type="text">
+    </div>
+
+</div>
