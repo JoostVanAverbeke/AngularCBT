@@ -6,9 +6,9 @@ import "rxjs/add/operator/map";
 import {Observable} from "rxjs/Observable";
 
 export interface Bloodbag {
-    /*id: number;*/
+    id: number;
     externalId: string;
-   /*antigenList: string;
+    antigenList: string;
     requiresAuthorization: boolean;
     recipientId: number;
     targetId: number;
@@ -33,7 +33,7 @@ export interface Bloodbag {
     checkoutDateTime: string;
     radiated: boolean;
     hasRemarks: boolean;
-    minutesSinceStartTransfusion: number;*/
+    minutesSinceStartTransfusion: number;
 }
 
 @Injectable()
@@ -48,7 +48,6 @@ export class BloodbagService {
         headers.append('ApiVersion', '1');
         headers.append('Content-Type', 'application/json');
 
-        barcode = '=B03101103022200';
         return this.http
             .get(
                 "http://192.168.1.78:8080/glims/rest/BtmService/bloodbags?barcode=" + barcode,
