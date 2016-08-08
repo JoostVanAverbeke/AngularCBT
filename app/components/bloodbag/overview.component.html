@@ -1,0 +1,17 @@
+<div class="row">
+
+    <div class="col-xs-6">
+        <patient-detail [(patient)]='patient'></patient-detail>
+    </div>
+
+    <div class="col-xs-6">
+        <bloodbag-detail [inputBarcode]='bloodbagBarcode' (notifyPatientId)='onNotify($event)'></bloodbag-detail>
+    </div>
+
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#">Parameters</a></li>
+        <li><a href="#">Reactions</a></li>
+        <li><a href="#">Results</a></li>
+    </ul>
+
+</div>

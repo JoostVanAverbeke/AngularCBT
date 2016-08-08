@@ -7,6 +7,8 @@ import {HelloWorldComponent} from "./components/hello_world";
 import {AuthenticatedGuard} from "./services/authentication/authenticated.guard";
 import {LoginComponent} from "./components/login/login.component";
 import {BloodbagDetailComponent} from "./components/bloodbag/detail.component";
+import {BloodbagOverviewComponent} from "./components/bloodbag/overview.component";
+import {PatientDetailComponent} from "./components/patient/detail.component";
 
 export const routes: RouterConfig = [
     {path: '', component: HelloWorldComponent, canActivate: [AuthenticatedGuard]},
@@ -15,6 +17,8 @@ export const routes: RouterConfig = [
     {path: 'end', component: EndTransfusionComponent, canActivate: [AuthenticatedGuard]},
     {path: 'login', component: LoginComponent},
     {path: 'bloodbag/:barcode/detail', component: BloodbagDetailComponent, canActivate: [AuthenticatedGuard]},
+    {path: 'bloodbag/:barcode/overview', component: BloodbagOverviewComponent, canActivate: [AuthenticatedGuard]},
+    {path: 'patient/:id/detail', component: PatientDetailComponent, canActivate: [AuthenticatedGuard]},
     {path: '**', component: LoginComponent, canActivate: [AuthenticatedGuard]}
 ];
 

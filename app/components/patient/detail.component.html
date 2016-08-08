@@ -1,1 +1,36 @@
-<h1> looking for patient with barcode {{values}}</h1>
+<div class="list-group">
+        <span class="list-group-item active">
+          <span class="glyphicon glyphicon-user"></span> {{patient?.externalization}}
+          </span>
+
+    <form class="form-horizontal" role="form">
+
+        <div class="form-group">
+
+            <label class="control-label col-sm-4" for="antigens">Antigens</label>
+            <div class="col-sm-8">
+                <p class="form-control-static">{{patient?.antigenList}}</p>
+            </div>
+            <label class="control-label col-sm-4" for="antibodies">Antibodies</label>
+            <div class="col-sm-8">
+                <p class="form-control-static">{{patient?.antibodyList}}</p>
+            </div>
+            <label class="control-label col-sm-4" for="admittanceDate">Admitted on</label>
+            <div class="col-sm-8">
+                <p class="form-control-static">{{patient?.encounterStartTime}}</p>
+            </div>
+            <label class="control-label col-sm-4" for="ward">Staying in ward</label>
+            <div class="col-sm-8">
+                <p class="form-control-static">{{patient?.wardName}}</p>
+            </div>
+            <label class="control-label col-sm-4" for="room">Room</label>
+            <div class="col-sm-8">
+                <p class="form-control-static">{{patient?.room}}</p>
+            </div>
+            <label class="control-label col-sm-4" for="since">Since</label>
+            <div class="col-sm-8">
+                <p class="form-control-static">{{patient?.stayStartTime}}</p>
+            </div>
+        </div>
+    </form>
+</div>

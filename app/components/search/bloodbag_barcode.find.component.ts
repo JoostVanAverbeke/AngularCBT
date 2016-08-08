@@ -16,6 +16,6 @@ export class FindBloodbagBarcodeComponent {
 
     // When the next call is done, reroute the response to the bloodbag.detail.component
     getBloodbagByBarcode(barcode: string) {
-        this.router.navigate(['/bloodbag/' + barcode + '/detail']);
+        this.router.navigate(['/bloodbag/' + barcode + '/overview']);
     }
 }
